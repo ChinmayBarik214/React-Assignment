@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Subjects from "./Subjects";
 import axios from "axios";
 import './App.css'
+import './LoginComponent.css'
 
 const LoginComponent = () => {
   const [identifier, setIdentifier] = useState("");
@@ -51,26 +52,28 @@ const LoginComponent = () => {
           </>
         ) : (
           <>
-          <h2 className='list-title'>Login to know your enrolled subjects</h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Username or Email"
-              value={identifier}
-              onChange={(e) => setIdentifier(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit" disabled={loading}>
-              {loading ? "Logging in..." : "Login"}
-            </button>
-          </form>
+            <h2 className='list-title list-title--login'>Login to know your enrolled subjects</h2>
+            <form className="form" onSubmit={handleSubmit}>
+              <input
+                className="form__input"
+                type="text"
+                placeholder="Username or Email"
+                value={identifier}
+                onChange={(e) => setIdentifier(e.target.value)}
+                required
+              />
+              <input
+                className="form__input"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <button className="form__input form__input--submit" type="submit" disabled={loading}>
+                {loading ? "Logging in..." : "Login"}
+              </button>
+            </form>
           </>
         )}
       </div>
