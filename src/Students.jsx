@@ -27,7 +27,7 @@ export default function Students() {
     <div className="main">
       <h2 className='list-title'>Students</h2>
       {loading ? (
-        <p className='text-center'>Loading Students...</p>
+        <p className='loading-msg'>Loading Students...</p>
       ) : (
         <ul className='data-list'>
           {students.data.map((student) => (

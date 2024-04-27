@@ -38,40 +38,43 @@ const LoginComponent = () => {
   };
 
   return (
-    <>
     <div className="main">
-      {isLoggedIn ? (
-        <>
-          <p>Logged in!</p>
-          <Subjects token={localStorage.getItem('jwtToken')}></Subjects>
-        </>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Username or Email"
-            value={identifier}
-            onChange={(e) => setIdentifier(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit" disabled={loading}>
-            {loading ? "Logging in..." : "Login"}
-          </button>
-        </form>
-      )}
+      <div>
+        {isLoggedIn ? (
+          <>
+            <p>Logged in!</p>
+            <button onClick={() => {
+              localStorage.removeItem('jwtToken')
+              window.location.reload()
+            }}>Log out</button>
+            <Subjects token={localStorage.getItem('jwtToken')}></Subjects>
+          </>
+        ) : (
+          <>
+          <h2 className='list-title'>Login to know your enrolled subjects</h2>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Username or Email"
+              value={identifier}
+              onChange={(e) => setIdentifier(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit" disabled={loading}>
+              {loading ? "Logging in..." : "Login"}
+            </button>
+          </form>
+          </>
+        )}
+      </div>
     </div>
-    <button onClick={() => {
-      localStorage.removeItem('jwtToken')
-      window.location.reload()
-    }}>Log out</button>
-    </>
   );
 };
 

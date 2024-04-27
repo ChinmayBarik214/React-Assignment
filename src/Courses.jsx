@@ -27,7 +27,7 @@ export default function Courses() {
     <div className="main">
       <h2 className='list-title'>Courses</h2>
       {loading ? (
-        <p className='text-center'>Loading Courses...</p>
+        <p className='loading-msg'>Loading Courses...</p>
       ) : (
         <ul className='data-list'>
           {courses.data.map((course) => (

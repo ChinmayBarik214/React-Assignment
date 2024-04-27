@@ -16,7 +16,7 @@ function Header() {
             <Link to="/students">Students</Link>
           </li>
           <li className='nav-list__item'>
-            <Link to="/login">Login</Link>
+            <Link to="/login">Subjects</Link>
           </li>
         </ul>
       </nav>

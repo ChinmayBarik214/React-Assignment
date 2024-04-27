@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import './App.css'
 
 export default function Subjects() {
   const [subjects, setSubjects] = useState([]);
@@ -9,7 +10,7 @@ export default function Subjects() {
     const fetchSubjects = async () => {
       try {
         const response = await axios.get(
-          "https://university.demoapi.xyz/api/subjects", 
+          "https://university.demoapi.xyz/api/subjects",
           { headers: { Authorization: `Bearer ${localStorage.getItem("jwtToken")}`, } }
         );
         setSubjects(response.data);
@@ -25,13 +26,13 @@ export default function Subjects() {
 
   return (
     <div>
-      <h2>Subjects</h2>
+      <h2 className='list-title'>Enrolled subjects</h2>
       {loading ? (
-        <p>Loading Subjects...</p>
+        <p className='loading-msg'>Loading Subjects...</p>
       ) : (
-        <ul>
+        <ul className='data-list'>
           {subjects.data.map((subject) => (
-            <li key={subject.id}>{subject.attributes.name}</li>
+            <li key={subject.id} className='data-list__item'>{subject.attributes.name}</li>
           ))}
         </ul>
       )}

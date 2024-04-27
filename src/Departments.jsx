@@ -25,7 +25,7 @@ const DepartmentList = () => {
     <div className='main'>
       <h2 className='list-title'>Departments</h2>
       {loading ? (
-        <p className='text-center'>Loading departments...</p>
+        <p className='loading-msg'>Loading departments...</p>
       ) : (
         <ul className='data-list'>
           {departments.data.map(department => (
