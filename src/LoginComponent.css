@@ -9,7 +9,6 @@
   max-width: 275px;
   text-align: center;
   margin-bottom: 10px;
-
   display: block;
   height: 2.375rem;
   padding: 0.375rem 0.75rem;
@@ -40,8 +39,29 @@
   background-color: hsl(143, 52.2%, 40.1%);
 }
 
+.form__input--logout {
+  cursor: pointer;
+  max-width: 125px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.form__input--logout:hover {
+  background-color: hsl(0, 0%, 95%);
+}
+
 .form__input:focus {
   border-color: #80bdff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-bar__name {
+  padding: 0.375rem 0.75rem;
+  font-size: 14px;
 }

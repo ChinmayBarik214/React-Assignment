@@ -26,7 +26,7 @@ export default function Subjects() {
 
   return (
     <div>
-      <h2 className='list-title'>Enrolled subjects</h2>
+      <h2 className='list-title list-title--subjects'>Enrolled subjects</h2>
       {loading ? (
         <p className='loading-msg'>Loading Subjects...</p>
       ) : (

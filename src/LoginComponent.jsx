@@ -43,11 +43,15 @@ const LoginComponent = () => {
       <div>
         {isLoggedIn ? (
           <>
-            <p>Logged in!</p>
-            <button onClick={() => {
-              localStorage.removeItem('jwtToken')
-              window.location.reload()
-            }}>Log out</button>
+            <div className="status-bar">
+              <p className="status-bar__name">Logged in!</p>
+              <button
+                className="form__input form__input--logout"
+                onClick={() => {
+                  localStorage.removeItem('jwtToken')
+                  window.location.reload()
+                }}>Log out</button>
+            </div>
             <Subjects token={localStorage.getItem('jwtToken')}></Subjects>
           </>
         ) : (
