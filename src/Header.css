@@ -21,7 +21,7 @@ header {
   list-style-type: none;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 450px) {
   header {
     padding-top: 5px;
   }

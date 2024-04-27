@@ -7,6 +7,8 @@
 }
 
 body {
-  background-color: #eee;
+  background-color: lightblue;
   font-family: "Poppins", sans-serif;
+  color: hsl(0, 0%, 20%);
+  line-height: 1.5;
 }

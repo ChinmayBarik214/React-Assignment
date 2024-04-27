@@ -23,13 +23,13 @@ const DepartmentList = () => {
 
   return (
     <div className='main'>
-      <h2>Departments</h2>
+      <h2 className='list-title'>Departments</h2>
       {loading ? (
-        <p>Loading departments...</p>
+        <p className='text-center'>Loading departments...</p>
       ) : (
-        <ul>
+        <ul className='data-list'>
           {departments.data.map(department => (
-            <li key={department.id}>{department.attributes.name}</li>
+            <li key={department.id} className='data-list__item'>{department.attributes.name}</li>
           ))}
         </ul>
       )}
