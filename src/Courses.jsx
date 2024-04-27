@@ -25,13 +25,13 @@ export default function Courses() {
 
   return (
     <div className="main">
-      <h2>Courses</h2>
+      <h2 className='list-title'>Courses</h2>
       {loading ? (
-        <p>Loading Courses...</p>
+        <p className='text-center'>Loading Courses...</p>
       ) : (
-        <ul>
+        <ul className='data-list'>
           {courses.data.map((course) => (
-            <li key={course.id}>{course.attributes.name}</li>
+            <li key={course.id} className='data-list__item'>{course.attributes.name}</li>
           ))}
         </ul>
       )}
