@@ -10,6 +10,7 @@ const LoginComponent = () => {
   const [loading, setLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("")
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     const jwtToken = localStorage.getItem("jwtToken");
@@ -35,6 +36,11 @@ const LoginComponent = () => {
       setUsername(response.data.user.username)
     } catch (error) {
       console.log("An error occurred:", error.response);
+      if (error.response && error.response.status === 400) {
+        setErrorMessage("Invalid username or password");
+      } else {
+        setErrorMessage("An unexpected error occurred");
+      }
     }
 
     setLoading(false);
@@ -79,6 +85,7 @@ const LoginComponent = () => {
               <button className="form__input form__input--submit" type="submit" disabled={loading}>
                 {loading ? "Logging in..." : "Login"}
               </button>
+              {errorMessage && <p className="form__error">{errorMessage}</p>}
             </form>
           </>
         )}
