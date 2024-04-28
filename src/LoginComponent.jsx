@@ -9,6 +9,7 @@ const LoginComponent = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("")
 
   useEffect(() => {
     const jwtToken = localStorage.getItem("jwtToken");
@@ -31,6 +32,7 @@ const LoginComponent = () => {
       console.log("User token", response.data.jwt);
       localStorage.setItem("jwtToken", response.data.jwt);
       setIsLoggedIn(true);
+      setUsername(response.data.user.username)
     } catch (error) {
       console.log("An error occurred:", error.response);
     }
@@ -44,7 +46,7 @@ const LoginComponent = () => {
         {isLoggedIn ? (
           <>
             <div className="status-bar">
-              <p className="status-bar__name">Logged in!</p>
+              <p className="status-bar__name">{username}</p>
               <button
                 className="form__input form__input--logout"
                 onClick={() => {
